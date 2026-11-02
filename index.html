@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Neoskara — Pakaian Kekinian dari Tepian Martapura</title>
-  <meta name="description" content="Neoskara: label pakaian dari Banjarmasin. Motif sasirangan, potongan rapi, rasa kekinian.">
-  <meta name="theme-color" content="#1f2a44">
+  <title>Neoskara Indonesia — Dari Borneo</title>
+  <meta name="description" content="Neoskara Indonesia: label streetwear dari Banjarmasin, Borneo. Pre-order #SAVEBORNEO sekarang dibuka.">
+  <meta name="theme-color" content="#0b0b0c">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#utama">Langsung ke konten</a>
 
   <div class="announce">
-    <p>Gratis ongkir se-Kalimantan Selatan untuk belanja di atas Rp300.000 <span aria-hidden="true">·</span> Bayar aman lewat QRIS, VA &amp; e-wallet</p>
+    <a href="#saveborneo">Open pre-order <strong>#SAVEBORNEO</strong> now <span aria-hidden="true">→</span></a>
   </div>
 
   <header class="site-header" data-header>
@@ -25,19 +25,16 @@
         <span class="burger" aria-hidden="true"></span>
       </button>
 
-      <a class="brand" href="#" aria-label="Neoskara, beranda">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-text">NEOSKARA</span>
-        <span class="brand-kana" aria-hidden="true">ネオスカラ</span>
+      <a class="brand" href="#" aria-label="Neoskara Indonesia, beranda">
+        <img src="assets/img/logo.png" alt="" width="217" height="59">
       </a>
 
       <nav class="main-nav" id="menu" aria-label="Menu utama" data-nav>
         <ul>
-          <li><a href="#baru">Baru</a></li>
-          <li><a href="#kategori">Kategori</a></li>
-          <li><a href="#lok-baintan">Koleksi Lok Baintan</a></li>
-          <li><a href="#motif">Motif</a></li>
-          <li><a href="#cerita">Cerita Kami</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#saveborneo">#SaveBorneo</a></li>
+          <li><a href="#neofc">NeoFC</a></li>
+          <li><a href="#tentang">Tentang</a></li>
         </ul>
       </nav>
 
@@ -47,7 +44,7 @@
         </button>
         <button class="icon-btn" type="button" aria-label="Keranjang" data-cart-btn>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
-          <span class="cart-count" data-cart-count aria-live="polite">0</span>
+          <span class="cart-count" data-cart-count aria-live="polite" hidden>0</span>
         </button>
       </div>
     </div>
@@ -58,152 +55,97 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="kanji" aria-hidden="true">新作</span> Koleksi Musim Hujan 2026</p>
-          <h1 class="hero-title">Arus baru dari <em>tepian Martapura.</em></h1>
-          <p class="hero-lead">Motif sasirangan warisan Banjar, dijahit dengan potongan bersih dan detail yang tenang. Nyaman dipakai baisukan ke pasar terapung, rapi dibawa ke kantor.</p>
+          <p class="kicker">Banjarmasin <span aria-hidden="true">/</span> Borneo <span aria-hidden="true">/</span> Indonesia</p>
+          <h1 class="hero-title">
+            <span>Neoskara</span>
+            <span class="outline">Indonesia</span>
+          </h1>
+          <p class="hero-lead">Pakaian harian yang lahir di tepian sungai Borneo. Potongan oversize, sablon bersih, dan cerita yang kami pakai dengan bangga.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#baru">Belanja sekarang</a>
-            <a class="btn btn-ghost" href="#lok-baintan">Lihat lookbook</a>
+            <a class="btn btn-primary" href="#shop">Belanja sekarang</a>
+            <a class="btn btn-ghost" href="#saveborneo">Pre-order #SaveBorneo</a>
           </div>
-          <dl class="hero-stats">
-            <div><dt>Motif sasirangan</dt><dd>7</dd></div>
-            <div><dt>Dijahit di</dt><dd>Banjarmasin</dd></div>
-            <div><dt>Sejak</dt><dd>2026</dd></div>
-          </dl>
         </div>
 
-        <figure class="hero-art" aria-label="Ilustrasi jukung di sungai saat matahari terbit">
-          <span class="vertical-text" aria-hidden="true">ネオスカラ・バンジャルマシン</span>
-          <svg viewBox="0 0 480 560" role="img" aria-hidden="true">
-            <defs>
-              <pattern id="hero-gigi" width="28" height="16" patternUnits="userSpaceOnUse">
-                <path d="M0 16 7 2l7 14 7-14 7 14" fill="none" stroke="#e2a93b" stroke-width="2"/>
-              </pattern>
-              <clipPath id="hero-frame"><rect x="0" y="0" width="480" height="560" rx="240" ry="240"/></clipPath>
-            </defs>
-            <g clip-path="url(#hero-frame)">
-              <rect width="480" height="560" class="art-sky"/>
-              <circle cx="240" cy="250" r="96" class="art-sun"/>
-              <rect y="330" width="480" height="230" class="art-river"/>
-              <g class="art-waves">
-                <path d="M0 360q30-10 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0"/>
-                <path d="M0 400q30-10 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0"/>
-                <path d="M0 440q30-10 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0"/>
-                <path d="M0 480q30-10 60 0t60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0 60 0"/>
-              </g>
-              <!-- jukung + pedagang bertanggui -->
-              <g class="art-jukung-wrap" transform="translate(245 392) scale(1.45) translate(-245 -392)">
-                <g class="art-jukung">
-                  <path class="art-fruit" d="M180 380a14 14 0 0 1 28 0Zm26 0a12 12 0 0 1 24 0Zm-50 0a12 12 0 0 1 24 0Z"/>
-                  <path class="art-seller" d="M262 380v-36a14 14 0 0 1 28 0v36Z"/>
-                  <path class="art-tanggui" d="M240 338h72l-36-20Z"/>
-                  <path class="art-boat" d="M110 380h270l-26 26H138Z"/>
-                  <path class="art-paddle" d="M300 360l40 70"/>
-                </g>
-              </g>
-              <rect y="512" width="480" height="48" fill="url(#hero-gigi)"/>
-            </g>
-          </svg>
-          <figcaption>Lok Baintan, baisukan jam 06.10</figcaption>
-        </figure>
+        <div class="hero-media">
+          <figure class="photo photo-main">
+            <img src="assets/img/lookbook/hoodie-zip-nskr.jpg" alt="Model memakai hoodie zip hitam Neoskara dengan logo X besar, berdiri di depan kafe pada malam hari" width="900" height="1600" fetchpriority="high">
+            <figcaption>Hoodie Zip NSKR</figcaption>
+          </figure>
+          <figure class="photo photo-side">
+            <img src="assets/img/lookbook/kaos-neoskara-indonesia.jpg" alt="Model memakai kaos hitam bertuliskan Neoskara Indonesia dan celana pendek bergaris" width="900" height="1600" loading="lazy">
+            <figcaption>Kaos Neoskara Indonesia</figcaption>
+          </figure>
+          <span class="vertical-tag" aria-hidden="true">ネオスカラ — 001</span>
+        </div>
       </div>
     </section>
 
-    <!-- Motif berjalan -->
-    <div class="marquee" aria-label="Nama motif sasirangan">
+    <div class="marquee" aria-hidden="true">
       <div class="marquee-track" data-marquee>
-        <span>Gigi Haruan</span><span>Kulat Kurikit</span><span>Ombak Sinapur Karang</span><span>Bintang Bahambur</span><span>Kambang Kacang</span><span>Hiris Gagatas</span><span>Jajumputan</span><span>Daun Jaruju</span>
+        <span>#SaveBorneo</span><span>Neoskara Indonesia</span><span>Banjarmasin</span><span>Pre-order now</span><span>#NeoFCteam</span><span>Kota Seribu Sungai</span>
       </div>
     </div>
 
-    <!-- 一 Kategori -->
-    <section class="section" id="kategori">
+    <!-- Shop -->
+    <section class="section" id="shop">
       <div class="container">
         <header class="section-head">
-          <span class="section-no" aria-hidden="true">一</span>
           <div>
-            <h2>Pilih sesuai gaya pian</h2>
-            <p>Dari kaos harian sampai laung untuk acara keluarga.</p>
+            <p class="kicker">Koleksi</p>
+            <h2>Shop</h2>
           </div>
+          <div class="filter-bar" role="group" aria-label="Saring produk" data-filters></div>
         </header>
-        <ul class="category-grid" data-categories></ul>
-      </div>
-    </section>
-
-    <!-- 二 Produk baru -->
-    <section class="section section-alt" id="baru">
-      <div class="container">
-        <header class="section-head">
-          <span class="section-no" aria-hidden="true">二</span>
-          <div>
-            <h2>Baru datang</h2>
-            <p>Produk contoh untuk pratinjau desain. Harga dan stok belum final.</p>
-          </div>
-        </header>
-        <div class="filter-bar" role="group" aria-label="Saring produk" data-filters></div>
         <ul class="product-grid" data-products aria-live="polite"></ul>
+        <p class="note">Harga di halaman ini masih contoh untuk pratinjau desain.</p>
       </div>
     </section>
 
-    <!-- Koleksi Lok Baintan -->
-    <section class="feature" id="lok-baintan">
-      <div class="container feature-grid">
-        <div class="feature-art" aria-hidden="true">
-          <div class="feature-panel panel-a"></div>
-          <div class="feature-panel panel-b"></div>
-          <div class="feature-panel panel-c"></div>
-        </div>
-        <div class="feature-copy">
-          <p class="eyebrow light"><span class="kanji" aria-hidden="true">水上市場</span> Koleksi khusus</p>
-          <h2>Lok Baintan</h2>
-          <p>Terinspirasi pasar terapung di Sungai Martapura: jukung berderet, tanggui lebar melindungi dari matahari pagi, dan warna buah yang ditawar sambil tertawa. Kami terjemahkan jadi palet indigo sungai, kuning kunyit, dan merah jambu kesumba.</p>
-          <ul class="feature-points">
-            <li>Katun combed 24s, adem untuk udara lembap</li>
-            <li>Motif dicelup tangan oleh perajin Kampung Sasirangan</li>
-            <li>Edisi terbatas, tiap potong bernomor</li>
+    <!-- Kampanye #SAVEBORNEO -->
+    <section class="campaign" id="saveborneo">
+      <div class="container campaign-grid">
+        <div class="campaign-copy">
+          <p class="kicker">Kampanye</p>
+          <h2 class="campaign-title">Save Borneo</h2>
+          <ul class="campaign-lines" aria-label="Seruan kampanye">
+            <li>Help our forests</li>
+            <li>Help our land</li>
+            <li>Help our animals</li>
+            <li>Help our house</li>
+            <li>Help our people</li>
           </ul>
-          <a class="btn btn-light" href="#baru">Jelajahi koleksi</a>
+          <p class="campaign-ask">Do you not care about the <em>lungs of the world</em> today?</p>
+          <p class="campaign-body">Hutan Kalimantan adalah rumah kami. Lewat kaos #SaveBorneo, kami ingin lebih banyak orang ikut peduli dan membicarakannya.</p>
+          <a class="btn btn-primary" href="#shop" data-goto-category="kaos">Pre-order sekarang</a>
+        </div>
+        <div class="campaign-art" aria-hidden="true">
+          <span class="campaign-stamp">#SAVEBORNEO</span>
         </div>
       </div>
     </section>
 
-    <!-- 三 Motif -->
-    <section class="section" id="motif">
+    <!-- NeoFC -->
+    <section class="section neofc" id="neofc">
+      <div class="container neofc-grid">
+        <div class="neofc-art" aria-hidden="true" data-jersey></div>
+        <div>
+          <p class="kicker">Komunitas</p>
+          <h2>#NeoFCteam</h2>
+          <p class="neofc-body">Kami percaya pada <strong>@neofcteam</strong> dan <strong>@neo.catalague</strong>. Neoskara bukan cuma baju, tapi juga teman main bola, nongkrong, dan berkarya bareng.</p>
+          <a class="btn btn-ghost" href="https://www.instagram.com/neoskara/" target="_blank" rel="noopener">Join community</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang -->
+    <section class="section about" id="tentang">
       <div class="container">
-        <header class="section-head">
-          <span class="section-no" aria-hidden="true">三</span>
-          <div>
-            <h2>Kenali motifnya</h2>
-            <p>Tiap motif sasirangan punya cerita. Ini beberapa yang kami pakai.</p>
-          </div>
-        </header>
-        <ul class="motif-grid" data-motifs></ul>
-      </div>
-    </section>
-
-    <!-- 四 Cerita -->
-    <section class="section section-alt" id="cerita">
-      <div class="container story">
-        <div class="story-quote">
-          <p class="banjar">“Bungas di mata, nyaman di awak.”</p>
-          <p class="translate">Cantik dilihat, nyaman dipakai. Itu janji kami.</p>
-        </div>
-        <ul class="values">
-          <li>
-            <span class="value-kanji" aria-hidden="true">技</span>
-            <h3>Teliti seperti monozukuri</h3>
-            <p>Kami belajar dari cara kerja Jepang: jahitan rapi, ukuran konsisten, dan bahan diuji sebelum dijual.</p>
-          </li>
-          <li>
-            <span class="value-kanji" aria-hidden="true">縁</span>
-            <h3>Dekat dengan perajin</h3>
-            <p>Kain dicelup bersama perajin lokal di Banjarmasin. Pian tahu siapa yang membuat baju pian.</p>
-          </li>
-          <li>
-            <span class="value-kanji" aria-hidden="true">川</span>
-            <h3>Kota Seribu Sungai</h3>
-            <p>Kemasan tanpa plastik sekali pakai, karena sungai kami terlalu berharga.</p>
-          </li>
+        <p class="about-statement">Neoskara dibuat di <span>Banjarmasin</span>, untuk anak muda yang bangga berasal dari <span>Borneo</span>.</p>
+        <ul class="about-points">
+          <li><strong>Oversize fit</strong><span>Potongan longgar yang tetap rapi di badan.</span></li>
+          <li><strong>Sablon awet</strong><span>Tidak gampang retak setelah dicuci berkali-kali.</span></li>
+          <li><strong>Edisi terbatas</strong><span>Rilis dalam jumlah kecil lewat pre-order.</span></li>
         </ul>
       </div>
     </section>
@@ -212,12 +154,12 @@
     <section class="newsletter">
       <div class="container newsletter-inner">
         <div>
-          <h2>Jangan sampai katinggalan</h2>
-          <p>Kabar rilis motif baru dan diskon khusus dangsanak pelanggan.</p>
+          <h2>Jangan sampai ketinggalan rilis</h2>
+          <p>Kabar pre-order dan drop terbaru langsung ke email pian.</p>
         </div>
         <form class="newsletter-form" data-newsletter novalidate>
           <label class="sr-only" for="email">Alamat email</label>
-          <input id="email" name="email" type="email" placeholder="email@pian.com" autocomplete="email" required>
+          <input id="email" name="email" type="email" placeholder="email@kamu.com" autocomplete="email" required>
           <button class="btn btn-primary" type="submit">Daftar</button>
           <p class="form-msg" data-form-msg role="status"></p>
         </form>
@@ -228,29 +170,25 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="#" aria-label="Neoskara, beranda">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-text">NEOSKARA</span>
-        </a>
-        <p>Pakaian kekinian dari Banjarmasin, Kalimantan Selatan.</p>
-        <p class="footer-kana" aria-hidden="true">ネオスカラ</p>
+        <img src="assets/img/logo-white.png" alt="Neoskara" width="217" height="59">
+        <p>Neoskara Indonesia. Banjarmasin, Kalimantan Selatan.</p>
       </div>
       <div>
-        <h3>Belanja</h3>
-        <ul><li><a href="#baru">Produk baru</a></li><li><a href="#kategori">Kategori</a></li><li><a href="#lok-baintan">Koleksi Lok Baintan</a></li></ul>
+        <h3>Shop</h3>
+        <ul><li><a href="#shop">Semua produk</a></li><li><a href="#saveborneo">#SaveBorneo</a></li><li><a href="#neofc">NeoFC</a></li></ul>
       </div>
       <div>
         <h3>Bantuan</h3>
-        <ul><li><a href="#">Panduan ukuran</a></li><li><a href="#">Pengiriman</a></li><li><a href="#">Penukaran &amp; retur</a></li><li><a href="#">Hubungi kami</a></li></ul>
+        <ul><li><a href="#">Panduan ukuran</a></li><li><a href="#">Cara pre-order</a></li><li><a href="#">Pengiriman</a></li><li><a href="#">Retur</a></li></ul>
       </div>
       <div>
-        <h3>Pembayaran</h3>
-        <ul class="pay-list"><li>QRIS</li><li>Virtual Account</li><li>GoPay</li><li>ShopeePay</li><li>Kartu kredit</li></ul>
+        <h3>Ikuti</h3>
+        <ul><li><a href="https://www.instagram.com/neoskara/" target="_blank" rel="noopener">Instagram @neoskara</a></li><li><a href="https://www.instagram.com/neofcteam/" target="_blank" rel="noopener">@neofcteam</a></li></ul>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© 2026 Neoskara. Halaman pratinjau desain.</p>
-      <p>Dibuat di Kota Seribu Sungai</p>
+      <p>© 2026 Neoskara Indonesia</p>
+      <p>Pratinjau desain</p>
     </div>
   </footer>
 

@@ -1,8 +1,7 @@
 (() => {
   'use strict';
 
-  const { motifs, shapes, categories, products, swatches } = window.NEOSKARA;
-  const motifById = Object.fromEntries(motifs.map((m) => [m.id, m]));
+  const { categories, products } = window.NEOSKARA;
   const $ = (selector, root = document) => root.querySelector(selector);
 
   const rupiah = new Intl.NumberFormat('id-ID', {
@@ -14,60 +13,33 @@
   const escapeHtml = (value) =>
     String(value).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
 
-  /* ---------- SVG builder ---------- */
+  /* ---------- Grafik kaos (untuk produk tanpa foto) ---------- */
 
-  let uid = 0;
+  const TEE_PATH = 'M60 22 85 12q15 14 30 0l25 10 40 30-18 28-17-10v150H55V70l-17 10-18-28Z';
+  const NECK_PATH = 'M85 12q15 22 30 0';
 
-  /** Pattern SVG dari tile motif, diwarnai dengan `accent`. */
-  function patternDef(motif, accent, scale = 1) {
-    const id = `p-${motif.id}-${++uid}`;
-    const def = `<pattern id="${id}" width="${motif.w}" height="${motif.h}" patternUnits="userSpaceOnUse" patternTransform="scale(${scale})"><g style="color:${accent}">${motif.tile}</g></pattern>`;
-    return { id, def };
-  }
-
-  /** Siluet pakaian berisi motif sasirangan. */
-  function garmentSvg({ shape, motif, base, accent }) {
-    const s = shapes[shape];
-    const pattern = patternDef(motifById[motif], accent, 0.9);
+  /**
+   * Siluet kaos oversize. `print` = teks sablon di dada (serif),
+   * `number` = nomor punggung gaya jersey.
+   */
+  function teeSvg({ base, print = '', number = '', trim = '' }) {
+    const printText = print
+      ? `<text x="100" y="92" text-anchor="middle" class="tee-print">${escapeHtml(print)}</text>`
+      : '';
+    const numberText = number
+      ? `<text x="76" y="96" text-anchor="middle" class="tee-number" fill="${trim}">${escapeHtml(number)}</text>
+         <circle cx="124" cy="88" r="9" fill="none" stroke="${trim}" stroke-width="2"/>
+         <path d="M38 80 20 52M162 80l18-28" stroke="${trim}" stroke-width="4"/>`
+      : '';
     return `
-      <svg class="garment" viewBox="0 0 200 240" aria-hidden="true" focusable="false">
-        <defs>${pattern.def}</defs>
-        <path d="${s.body}" fill="${base}"/>
-        <path d="${s.body}" fill="url(#${pattern.id})" opacity=".9"/>
-        <path d="${s.detail}" fill="none" stroke="${base}" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-      </svg>`;
-  }
-
-  /** Kotak penuh motif, dipakai di bagian "Kenali motifnya". */
-  function swatchSvg(motif, base, accent) {
-    const pattern = patternDef(motif, accent, 1.4);
-    return `
-      <svg viewBox="0 0 160 160" aria-hidden="true" focusable="false">
-        <defs>${pattern.def}</defs>
-        <rect width="160" height="160" fill="${base}"/>
-        <rect width="160" height="160" fill="url(#${pattern.id})"/>
+      <svg class="tee" viewBox="0 0 200 240" aria-hidden="true" focusable="false">
+        <path d="${TEE_PATH}" fill="${base}"/>
+        <path d="${NECK_PATH}" fill="none" stroke="rgb(255 255 255 / .14)" stroke-width="2"/>
+        ${printText}${numberText}
       </svg>`;
   }
 
   /* ---------- Render ---------- */
-
-  function renderCategories() {
-    const list = $('[data-categories]');
-    if (!list) return;
-    list.innerHTML = categories
-      .map((c) => {
-        const count = products.filter((p) => p.category === c.id).length;
-        return `
-          <li>
-            <a class="category-card" href="#baru" data-goto-category="${c.id}">
-              <span class="category-visual">${garmentSvg(c)}</span>
-              <span class="category-name">${escapeHtml(c.name)}</span>
-              <span class="category-count">${count} produk</span>
-            </a>
-          </li>`;
-      })
-      .join('');
-  }
 
   function renderFilters(active) {
     const bar = $('[data-filters]');
@@ -81,6 +53,13 @@
       .join('');
   }
 
+  function productMedia(p) {
+    if (p.image) {
+      return `<img src="${p.image}" alt="${escapeHtml(p.alt)}" width="720" height="900" loading="lazy">`;
+    }
+    return `<div class="product-art product-art--${p.art.bg}">${teeSvg(p.art)}</div>`;
+  }
+
   function renderProducts(filter = 'semua') {
     const grid = $('[data-products]');
     if (!grid) return;
@@ -89,57 +68,41 @@
       .map(
         (p) => `
         <li class="product-card">
-          <div class="product-media" style="--card-tint:${p.base}">
+          <div class="product-media">
             ${p.badge ? `<span class="badge">${escapeHtml(p.badge)}</span>` : ''}
-            ${garmentSvg(p)}
-            <button type="button" class="quick-add" data-add="${p.id}">Tambah ke keranjang</button>
+            ${productMedia(p)}
+            <button type="button" class="quick-add" data-add="${p.id}">+ Keranjang</button>
           </div>
           <div class="product-info">
-            <p class="product-motif">${escapeHtml(motifById[p.motif].name)}</p>
             <h3 class="product-name">${escapeHtml(p.name)}</h3>
+            <p class="product-meta">${escapeHtml(p.color)}</p>
             <p class="product-price">${rupiah.format(p.price)}</p>
-            <ul class="swatches" aria-label="Pilihan warna">
-              ${swatches.map((c) => `<li style="--swatch:${c}"></li>`).join('')}
-            </ul>
           </div>
         </li>`
       )
       .join('');
   }
 
-  function renderMotifs() {
-    const list = $('[data-motifs]');
-    if (!list) return;
-    const pairs = [
-      ['#1f2a44', '#e2a93b'],
-      ['#b3262d', '#f6efe3'],
-      ['#2f5d73', '#e8dcc4'],
-      ['#6b1f2a', '#e2a93b'],
-      ['#3d4a3a', '#f6efe3'],
-      ['#e8dcc4', '#1f2a44'],
-      ['#f6efe3', '#b3262d'],
-    ];
-    list.innerHTML = motifs
-      .map((m, i) => {
-        const [base, accent] = pairs[i % pairs.length];
-        return `
-          <li class="motif-card">
-            <div class="motif-swatch">${swatchSvg(m, base, accent)}</div>
-            <h3>${escapeHtml(m.name)}</h3>
-            <p>${escapeHtml(m.meaning)}</p>
-          </li>`;
-      })
-      .join('');
+  function renderStaticArt() {
+    const campaign = $('.campaign-art');
+    if (campaign) {
+      campaign.insertAdjacentHTML('afterbegin', teeSvg({ base: '#0d0d0d', print: 'SAVE BORNEO' }));
+    }
+    const jersey = $('[data-jersey]');
+    if (jersey) {
+      jersey.innerHTML = teeSvg({ base: '#1e2a47', number: '10', trim: '#d8b04c' });
+    }
   }
 
   /* ---------- Keranjang (simulasi) ---------- */
 
   const CART_KEY = 'neoskara.cart';
 
-  const cart = {
+  const cartStore = {
     read() {
       try {
-        return JSON.parse(localStorage.getItem(CART_KEY)) ?? [];
+        const items = JSON.parse(localStorage.getItem(CART_KEY));
+        return Array.isArray(items) ? items : [];
       } catch {
         return [];
       }
@@ -153,7 +116,7 @@
     },
   };
 
-  let cartItems = cart.read();
+  let cartItems = cartStore.read();
 
   function updateCartCount() {
     const el = $('[data-cart-count]');
@@ -176,9 +139,9 @@
     const product = products.find((p) => p.id === id);
     if (!product) return;
     cartItems = [...cartItems, id];
-    cart.write(cartItems);
+    cartStore.write(cartItems);
     updateCartCount();
-    toast(`${product.name} masuk keranjang. Ayuha, lanjut belanja!`);
+    toast(`${product.name} masuk keranjang.`);
   }
 
   /* ---------- Interaksi ---------- */
@@ -209,7 +172,7 @@
       }
 
       if (event.target.closest('[data-cart-btn]')) {
-        toast(cartItems.length ? `Ada ${cartItems.length} barang di keranjang pian.` : 'Keranjang masih kosong.');
+        toast(cartItems.length ? `Ada ${cartItems.length} barang di keranjang.` : 'Keranjang masih kosong.');
       }
     });
 
@@ -238,7 +201,7 @@
           input.focus();
           return;
         }
-        msg.textContent = 'Makasih banar! Kabar terbaru akan kami kirim ke email pian.';
+        msg.textContent = 'Makasih! Kabar rilis berikutnya akan kami kirim ke email pian.';
         msg.dataset.state = 'ok';
         form.reset();
       });
@@ -255,14 +218,12 @@
   /** Gandakan isi marquee supaya animasinya bersambung tanpa jeda. */
   function setupMarquee() {
     const track = $('[data-marquee]');
-    if (!track) return;
-    const clone = track.innerHTML;
-    track.insertAdjacentHTML('beforeend', clone.replace(/<span>/g, '<span aria-hidden="true">'));
+    if (track) track.insertAdjacentHTML('beforeend', track.innerHTML);
   }
 
   function setupReveal() {
-    const targets = document.querySelectorAll('.section-head, .category-card, .product-card, .motif-card, .values li, .feature-copy');
     if (!('IntersectionObserver' in window)) return;
+    const targets = document.querySelectorAll('.section-head, .product-card, .campaign-copy, .neofc-grid > *, .about-statement, .about-points li');
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -280,9 +241,8 @@
     });
   }
 
-  renderCategories();
   setFilter('semua');
-  renderMotifs();
+  renderStaticArt();
   updateCartCount();
   setupMarquee();
   bindEvents();
