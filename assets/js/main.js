@@ -55,7 +55,10 @@
 
   function productMedia(p) {
     if (p.image) {
-      return `<img src="${p.image}" alt="${escapeHtml(p.alt)}" width="720" height="900" loading="lazy">`;
+      const hover = p.hoverImage
+        ? `<img class="hover-img" src="${p.hoverImage}" alt="${escapeHtml(p.hoverAlt)}" loading="lazy">`
+        : '';
+      return `<img src="${p.image}" alt="${escapeHtml(p.alt)}" width="720" height="900" loading="lazy">${hover}`;
     }
     return `<div class="product-art product-art--${p.art.bg}">${teeSvg(p.art)}</div>`;
   }
@@ -84,10 +87,6 @@
   }
 
   function renderStaticArt() {
-    const campaign = $('.campaign-art');
-    if (campaign) {
-      campaign.insertAdjacentHTML('afterbegin', teeSvg({ base: '#0d0d0d', print: 'SAVE BORNEO' }));
-    }
     const jersey = $('[data-jersey]');
     if (jersey) {
       jersey.innerHTML = teeSvg({ base: '#1e2a47', number: '10', trim: '#d8b04c' });

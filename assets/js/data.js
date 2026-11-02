@@ -12,8 +12,8 @@ window.NEOSKARA = (() => {
   ];
 
   /**
-   * `image` dipakai kalau ada foto produk. Tanpa foto, kartu memakai
-   * grafik `art` (siluet kaos + sablon) yang digambar di main.js.
+   * `image` = foto utama kartu, `hoverImage` (opsional) muncul saat kursor
+   * di atas kartu. Tanpa foto, kartu memakai grafik `art` dari main.js.
    */
   const products = [
     {
@@ -50,7 +50,10 @@ window.NEOSKARA = (() => {
       color: 'Hitam',
       price: 169000,
       badge: 'Pre-order',
-      art: { base: '#111111', print: 'SAVE BORNEO', bg: 'ember' },
+      image: 'assets/img/products/kaos-saveborneo.jpg',
+      alt: 'Kaos hitam #SaveBorneo digantung di tengah hutan yang terbakar',
+      hoverImage: 'assets/img/lookbook/kaos-saveborneo-masker.jpg',
+      hoverAlt: 'Model bermasker gas memakai kaos #SaveBorneo, sablon di punggung',
     },
   ];
 

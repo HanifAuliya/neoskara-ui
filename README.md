@@ -14,7 +14,7 @@ Mengikuti gaya Instagram [@neoskara](https://www.instagram.com/neoskara/):
 - **Komunitas #NeoFCteam:** warna navy dan emas dari jersey.
 - **Identitas lokal:** Barabai, Hulu Sungai Tengah (Kota Apam): Apam Barabai, Pegunungan Meratus, semboyan Murakata, Sungai Barabai.
 
-Foto produk dan logo dari Neoskara. Kaos #SaveBorneo dan jersey NeoFC masih grafik SVG karena belum ada fotonya. Harga masih contoh.
+Foto produk dan logo dari Neoskara. Jersey NeoFC masih grafik SVG karena belum ada fotonya. Harga masih contoh.
 
 ## Struktur
 

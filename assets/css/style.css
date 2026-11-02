@@ -606,9 +606,20 @@ h2 {
   filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.5));
 }
 
+/* Foto kedua muncul saat hover */
+.product-media .hover-img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
+}
+
+.product-card:hover .hover-img {
+  opacity: 1;
+}
+
 /* Latar bara: coklat gelap berbintik seperti post #SAVEBORNEO */
-.product-art--ember,
-.campaign-art {
+.product-art--ember {
   background:
     radial-gradient(circle at 30% 20%, rgb(243 154 43 / 0.22), transparent 45%),
     radial-gradient(circle at 75% 85%, rgb(224 48 30 / 0.18), transparent 50%),
@@ -764,25 +775,11 @@ h2 {
 }
 
 .campaign-art {
-  position: relative;
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 5;
+  box-shadow: 0 30px 80px -30px rgb(243 154 43 / 0.25);
 }
 
-.campaign-art .tee {
-  width: 72%;
-  filter: drop-shadow(0 24px 30px rgb(0 0 0 / 0.6));
-}
-
-.campaign-stamp {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--flame);
+.campaign-art img {
+  aspect-ratio: 4 / 5.6;
 }
 
 /* ---------- NeoFC ---------- */
