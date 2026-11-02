@@ -12,7 +12,7 @@ Mengikuti gaya Instagram [@neoskara](https://www.instagram.com/neoskara/):
 - **Aksen logo:** merah `#e0301e` dan oranye `#f39a2b` dari logo, dipakai hemat (tombol, badge, penanda).
 - **Kampanye #SAVEBORNEO:** latar bara coklat berbintik dan huruf serif Romawi (Cinzel), seperti post kampanye di IG.
 - **Komunitas #NeoFCteam:** warna navy dan emas dari jersey.
-- **Identitas lokal:** Banjarmasin, Borneo, bahasa Banjar ringan ("pian").
+- **Identitas lokal:** Barabai, Hulu Sungai Tengah (Kota Apam): Apam Barabai, Pegunungan Meratus, semboyan Murakata, Sungai Barabai.
 
 Foto produk dan logo dari Neoskara. Kaos #SaveBorneo dan jersey NeoFC masih grafik SVG karena belum ada fotonya. Harga masih contoh.
 

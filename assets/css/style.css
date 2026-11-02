@@ -826,6 +826,7 @@ h2 {
 /* ---------- Tentang ---------- */
 
 .about-statement {
+  margin-top: 14px;
   max-width: 18em;
   font-size: clamp(32px, 4.6vw, 64px);
   font-weight: 700;
@@ -857,6 +858,88 @@ h2 {
 }
 
 .about-points span {
+  color: var(--muted);
+}
+
+/* Kartu fakta Barabai / HST */
+.hst-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+.hst-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 24px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.hst-card::before {
+  /* ilustrasi kecil di pojok kanan atas */
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  opacity: 0.9;
+}
+
+.hst-card--apam::before {
+  /* apam: kue bundar mengembang */
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 38%, #f6e2b8 0 22%, transparent 23%),
+    radial-gradient(circle at 50% 50%, #c98a3d 0 62%, transparent 63%);
+}
+
+.hst-card--meratus::before {
+  /* puncak gunung */
+  background: linear-gradient(135deg, transparent 50%, #3d5a3a 50%) 0 100% / 50% 70% no-repeat,
+    linear-gradient(225deg, transparent 50%, #2c4329 50%) 100% 100% / 50% 70% no-repeat;
+}
+
+.hst-card--murakata::before {
+  /* tiga lingkaran bersambung: bersepakat */
+  background:
+    radial-gradient(circle at 20% 50%, transparent 0 9px, var(--flame) 10px 12px, transparent 13px),
+    radial-gradient(circle at 50% 50%, transparent 0 9px, var(--fire) 10px 12px, transparent 13px),
+    radial-gradient(circle at 80% 50%, transparent 0 9px, var(--flame) 10px 12px, transparent 13px);
+}
+
+.hst-card--sungai::before {
+  /* aliran sungai */
+  background: repeating-radial-gradient(circle at 50% -60%, transparent 0 14px, #4b7a95 14px 16px);
+  border-radius: 4px;
+}
+
+.hst-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--flame);
+}
+
+.hst-card h3 {
+  margin-top: auto;
+  padding-top: 48px;
+  font-size: clamp(26px, 2.4vw, 34px);
+  font-weight: 800;
+  font-stretch: 72%;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hst-card p {
+  margin-top: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 
@@ -1012,6 +1095,10 @@ h2 {
 /* ---------- Responsif ---------- */
 
 @media (max-width: 1024px) {
+  .hst-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1104,6 +1191,14 @@ h2 {
 }
 
 @media (max-width: 560px) {
+  .hst-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hst-card {
+    min-height: 0;
+  }
+
   .announce {
     font-size: 11px;
     letter-spacing: 0.1em;
